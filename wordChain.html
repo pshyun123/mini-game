@@ -11,15 +11,38 @@
     <button>입력</button>
     <script>
       const number = Number(prompt("참가자는 총 몇명입니까?"));
-      const $input = document.querySelector("input"); // input 태그
-      const $button = document.querySelector("button"); // button 태그
+      const $input = document.querySelector("input");
+      const $button = document.querySelector("button");
+      const $word = document.querySelector("#word");
+      const $order = document.querySelector("#order");
+
+      let word; // 제시어
       let newWord; // 현재 단어
+
       const onInput = (event) => {
         newWord = event.target.value;
       };
-      const onClickButton = () => {};
+      const onClickButton = () => {
+        // 제시어 비어있거나 입력한 단어가 맞는지?
+        // 문자열의 마지막 글자 ?== 새로운 단어의 첫글자
+        if (!word || word.at(-1) === newWord[0]) {
+          word = newWord; // 입력한 단어가 제시어가 됨
+          $word.textContent = word; // 화면에 제시어 표시
+          const order = Number($order.textContent); // 현재 순서 파악
+          // 순서 부여
+          if (order + 1 > number) {
+            $order.textContent = 1;
+          } else {
+            order.textContent = order + 1;
+          }
+        } else {
+          alert("틀린 단어입니다. ");
+        }
+        $input.value = "";
+        $input.focus(); //
+      };
       $input.addEventListener("input", onInput);
-      $button.addEventListener("button", onClickButton);
+      $button.addEventListener("click", onClickButton);
     </script>
   </body>
 </html>
