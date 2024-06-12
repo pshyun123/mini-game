@@ -1,0 +1,49 @@
+/* styles.css */
+
+/* 전체 body 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  min-height: 100vh; /* 뷰포트 높이 최소값 지정 */
+}
+
+/* 참가자 순서 표시하는 div 스타일 */
+div {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 제시어 표시하는 span 스타일 */
+#word {
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+}
+
+/* 입력창 스타일 */
+input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* 입력 버튼 스타일 */
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* 입력 버튼에 마우스 호버 시 스타일 */
+button:hover {
+  background-color: #0056b3;
+}
