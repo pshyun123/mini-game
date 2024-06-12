@@ -28,13 +28,10 @@
         if (!word || word.at(-1) === newWord[0]) {
           word = newWord; // 입력한 단어가 제시어가 됨
           $word.textContent = word; // 화면에 제시어 표시
-          const order = Number($order.textContent); // 현재 순서 파악
+          let order = Number($order.textContent); // 현재 순서 파악
           // 순서 부여
-          if (order + 1 > number) {
-            $order.textContent = 1;
-          } else {
-            order.textContent = order + 1;
-          }
+          order = order >= number ? 1 : order + 1;
+          $order.textContent = order; // 순서를 화면에 반영
         } else {
           alert("틀린 단어입니다. ");
         }
