@@ -54,10 +54,7 @@
   </div>
 </body>
 <script>
-  let numOne = '';
-  let operator = '';
-  let numTwo = '';
-
+  let numOne = '', operator = '', numTwo = '';
   const $operator = document.querySelector('#operator');
   const $result = document.querySelector('#result');
 
@@ -74,15 +71,18 @@
     }
   };
 
-  const onClickOperator = (e) => {
-    if (numOne) {
-      operator = e.target.textContent;
-      $operator.value = operator;
-    } else {
-      alert('숫자를 먼저 입력하세요.');
-    }
-  };
 
+const onClickOperator = (e) => {
+  if (numOne) {
+    if (numTwo) {
+      onClickCalculate();  // 기존 연산을 수행 후 연산자 설정
+    }
+    operator = e.target.textContent;
+    $operator.value = operator;
+  } else {
+    alert('숫자를 먼저 입력하세요.');
+  }
+};
   const onClickClear = () => {
     numOne = '';
     operator = '';
@@ -93,26 +93,26 @@
 
   const onClickCalculate = () => {
     if (numTwo) {
-      switch (operator) {
+        switch (operator) {
         case '+':
-          $result.value = parseInt(numOne) + parseInt(numTwo);
-          break;
+            $result.value = parseInt(numOne) + parseInt(numTwo);
+            break;
         case '-':
-          $result.value = parseInt(numOne) - parseInt(numTwo);
-          break;
+            $result.value = parseInt(numOne) - parseInt(numTwo);
+            break;
         case 'x':
-          $result.value = parseInt(numOne) * parseInt(numTwo);
-          break;
+            $result.value = parseInt(numOne) * parseInt(numTwo);
+            break;
         case '/':
-          $result.value = parseInt(numOne) / parseInt(numTwo);
-          break;
+            $result.value = parseInt(numOne) / parseInt(numTwo);
+            break;
         default:
-          break;
-      }
+            break;
+        }
+      $operator.value = '';
       numOne = $result.value;
       operator = '';
       numTwo = '';
-      $operator.value = '';
     } else {
       alert('숫자를 먼저 입력하세요.');
     }
