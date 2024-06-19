@@ -71,8 +71,7 @@
     }
   };
 
-
-const onClickOperator = (e) => {
+  const onClickOperator = (e) => {
   if (numOne) {
     if (numTwo) {
       onClickCalculate();  // 기존 연산을 수행 후 연산자 설정
@@ -82,7 +81,8 @@ const onClickOperator = (e) => {
   } else {
     alert('숫자를 먼저 입력하세요.');
   }
-};
+  };
+
   const onClickClear = () => {
     numOne = '';
     operator = '';
@@ -93,22 +93,22 @@ const onClickOperator = (e) => {
 
   const onClickCalculate = () => {
     if (numTwo) {
-        switch (operator) {
-        case '+':
-            $result.value = parseInt(numOne) + parseInt(numTwo);
-            break;
-        case '-':
-            $result.value = parseInt(numOne) - parseInt(numTwo);
-            break;
-        case 'x':
-            $result.value = parseInt(numOne) * parseInt(numTwo);
-            break;
-        case '/':
-            $result.value = parseInt(numOne) / parseInt(numTwo);
-            break;
-        default:
-            break;
-        }
+    switch (operator) {
+      case '+':
+        $result.value = parseInt(numOne) + parseInt(numTwo);
+        break;
+      case '-':
+        $result.value = parseInt(numOne) - parseInt(numTwo);
+        break;
+      case 'x':
+        $result.value = parseInt(numOne) * parseInt(numTwo);
+        break;
+      case '/':
+        $result.value = parseInt(numOne) / parseInt(numTwo);
+        break;
+      default:
+        break;
+    }
       $operator.value = '';
       numOne = $result.value;
       operator = '';
